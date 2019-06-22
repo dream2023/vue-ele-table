@@ -1,17 +1,21 @@
 {
   "name": "vue-ele-table",
   "version": "0.1.0",
-  "private": true,
+  "description": "基于 element-ui 功能强大的表格组件",
+  "license": "MIT",
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build:lib": "vue build -t lib --name vue-ele-table -d ./dist/ ./src/index.js",
+    "build": "npm run lint & npm run build:lib",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "core-js": "^2.6.5",
-    "vue": "^2.6.10"
+    "vue-ele-editable": "^1.0.1"
   },
   "devDependencies": {
+    "core-js": "^2.6.5",
+    "vue": "^2.6.10",
     "@vue/cli-plugin-babel": "^3.8.0",
     "@vue/cli-plugin-eslint": "^3.8.0",
     "@vue/cli-service": "^3.8.0",
