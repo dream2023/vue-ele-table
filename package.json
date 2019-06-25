@@ -1,6 +1,6 @@
 {
   "name": "vue-ele-table",
-  "version": "0.1.0",
+  "version": "0.1.0.1",
   "description": "基于 element-ui 功能强大的表格组件",
   "license": "MIT",
   "private": false,

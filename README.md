@@ -1,5 +1,9 @@
 # vue-ele-table | 基于 element-ui 的表格二次封装
 
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg)](https://opensource.org/licenses/mit-license.php)
+[![npm](https://img.shields.io/npm/v/vue-ele-table.svg)](https://www.npmjs.com/package/vue-ele-table)
+[![download](https://img.shields.io/npm/dw/vue-ele-table.svg)](https://npmcharts.com/compare/vue-ele-editable?minimal=true)
+
 ## 说明
 
 vue-ele-table 是基于[element-ui table](https://element.eleme.cn/#/zh-CN/component/table) 和 [vue-ele-editable](https://github.com/dream2023/vue-ele-editable) 的进一步封装, 内置了 <code>搜索、排序、筛选、过滤、分页、显示隐藏列、行内编辑</code> 功能, 隐藏了细节, 目的是为了保证开发的质量, 加快开发的速度 😁。
