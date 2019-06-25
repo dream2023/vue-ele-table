@@ -8,7 +8,7 @@ Vue.config.productionTip = false
 Vue.use(Element)
 Vue.use(EleTable, {
   // 默认每页显示个数
-  defaultSize: 15,
+  defaultSize: 5,
   // 请求参数的 key
   paramsKey: {
     page: 'page',

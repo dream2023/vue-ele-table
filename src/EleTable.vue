@@ -75,6 +75,8 @@
             :key="field"
             :label="column.text"
             :prop="field"
+            :sortable="column.sortable === true ? 'custom' : column.sortable"
+            :width="column.width"
             @selection-change="handleSelectionChange"
             @sort-change="handleSort"
             v-bind="getColumnAttrs(column.columnAttrs)"
@@ -114,10 +116,11 @@
       </template>
       <!-- 操作列 -->
       <el-table-column
+        :width="rightColumnWidth"
         align="center"
         fixed="right"
+        key="_action"
         label="操作"
-        v-bind="columnsDesc._action"
         v-if="isShowRightColumn"
       >
         <template slot-scope="scope">
@@ -244,12 +247,13 @@ export default {
       orderField = this.tableDesc.attrs['default-sort'].prop
       orderDirection = this.tableDesc.attrs['default-sort'].order === 'ascending' ? 'asc' : 'desc'
     }
-
     return {
       // 当前页面
       page: 1,
       // 数据总数
       total: 0,
+      // 每页个数
+      size: 20,
       // 加载状态
       isLoading: false,
       // 排序字段
@@ -279,10 +283,6 @@ export default {
     globalParams () {
       return this.$EleTableParams || {}
     },
-    // 每页数据个数
-    size () {
-      return this.globalParams.size || 20
-    },
     // 表格属性
     tableAttrs () {
       return Object.assign({}, { border: true, stripe: true }, this.tableDesc.attrs)
@@ -290,6 +290,19 @@ export default {
     // 判断是否显示右侧列
     isShowRightColumn () {
       return Object.keys(this.rightButtons).length > 0 || this.isShowRightDelete === true
+    },
+    rightColumnWidth () {
+      let width = 60
+      if (this.isShowRightDelete) {
+        width += 60
+      }
+      if (this.rightButtons) {
+        this.rightButtons.forEach((btn) => {
+          width += 32
+          width += btn.text.length * 12
+        })
+      }
+      return width
     }
   },
   methods: {
@@ -458,6 +471,10 @@ export default {
     }
   },
   mounted () {
+    if (this.globalParams.defaultSize) {
+      this.size = this.globalParams.defaultSize
+    }
+
     this.getData()
   }
 }

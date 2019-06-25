@@ -3,7 +3,7 @@
     <el-pagination
       :current-page="page"
       :page-size="size"
-      :page-sizes="[size, size * 2, size * 3, size * 5]"
+      :page-sizes="[20, 40, 50, 100]"
       :total="total"
       @current-change="handleCurrentChange"
       @size-change="handleSizeChange"
@@ -36,7 +36,7 @@ export default {
     // 每页大小变化
     handleSizeChange (val) {
       this.$emit('change', {
-        page: this.page,
+        page: 1,
         size: val
       })
     }
