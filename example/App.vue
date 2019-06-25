@@ -34,8 +34,8 @@ export default {
       rightButtons: [
         {
           text: '编辑',
-          click: (index, data) => {
-            console.log(data)
+          click: (id, index, data) => {
+            console.log(id, index, data)
             this.$message({
               type: 'success',
               message: '点击编辑了!'
@@ -107,6 +107,10 @@ export default {
           text: 'ID',
           sortable: true,
           width: 80
+        },
+        avatar: {
+          text: '头像',
+          type: 'image'
         },
         name: {
           text: '名字',

@@ -61,9 +61,9 @@
           <!-- 兼容 attrs.formatter -->
           <el-table-column
             :column-key="field"
-            :filters="column.options"
+            :filters="getOptions(column.options)"
             :key="field"
-            :label="column.label"
+            :label="column.text"
             :prop="field"
             v-bind="getColumnAttrs(column.columnAttrs)"
             v-if="column.columnAttrs && column.columnAttrs.formatter"
@@ -283,6 +283,19 @@ export default {
     globalParams () {
       return this.$EleTableParams || {}
     },
+    // 请求参数的 key
+    paramsKey () {
+      return Object.assign({}, {
+        size: 'size',
+        page: 'page',
+        _order_field: '_order_field',
+        _order_direction: '_order_direction',
+        _filter: '_filter',
+        _filter_time: '_filter_time',
+        _search_field: '_search_field',
+        _search_keyword: '_search_keyword'
+      }, this.globalParams.paramsKey)
+    },
     // 表格属性
     tableAttrs () {
       return Object.assign({}, { border: true, stripe: true }, this.tableDesc.attrs)
@@ -310,15 +323,16 @@ export default {
     async getData () {
       if (this.isLoading) return
       this.isLoading = true
+      const paramsKey = this.paramsKey
       const params = {
-        size: this.size,
-        page: this.page,
-        _order_field: this.orderField,
-        _order_direction: this.orderDirection,
-        _filter: this.filterValues,
-        _filter_time: this.filterTime,
-        _search_field: this.searchField,
-        _search_keyword: this.searchKeyword
+        [paramsKey.size]: this.size,
+        [paramsKey.page]: this.page,
+        [paramsKey._order_field]: this.orderField,
+        [paramsKey._order_direction]: this.orderDirection,
+        [paramsKey._filter]: this.filterValues,
+        [paramsKey._filter_time]: this.filterTime,
+        [paramsKey._search_field]: this.searchField,
+        [paramsKey._search_keyword]: this.searchKeyword
       }
       try {
         // 切换 key
