@@ -18,7 +18,7 @@
       :top-time="topTime"
       :update-fn="handleUpdate"
       ref="table"
-    />
+    ></ele-table>
   </el-card>
 </template>
 
@@ -62,17 +62,19 @@ export default {
           click: (ids) => {
             console.log(ids)
             if (ids.length === 0) return
-            this.mockData = this.mockData.map((item) => {
-              if (ids.indexOf(item.id) > -1) {
-                item.status = 1
-              }
-              return item
-            })
             this.$refs.table.reset()
             this.$message({
               type: 'success',
               message: '更新成功!'
             })
+            setTimeout(() => {
+              this.mockData = this.mockData.map((item) => {
+                if (ids.indexOf(item.id) > -1) {
+                  item.status = 1
+                }
+                return item
+              })
+            }, 1000)
           }
         },
         {
@@ -83,17 +85,19 @@ export default {
           click: (ids) => {
             console.log(ids)
             if (ids.length === 0) return
-            this.mockData = this.mockData.map((item) => {
-              if (ids.indexOf(item.id) > -1) {
-                item.status = 0
-              }
-              return item
-            })
             this.$refs.table.reset()
             this.$message({
               type: 'success',
               message: '更新成功!'
             })
+            setTimeout(() => {
+              this.mockData = this.mockData.map((item) => {
+                if (ids.indexOf(item.id) > -1) {
+                  item.status = 0
+                }
+                return item
+              })
+            }, 1000)
           }
         }
       ],

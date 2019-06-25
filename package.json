@@ -10,8 +10,24 @@
     "build": "npm run lint & npm run build:lib",
     "lint": "vue-cli-service lint"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dream2023/vue-ele-table"
+  },
+  "main": "dist/vue-ele-table.umd.min.js",
+  "homepage": "https://github.com/dream2023/vue-ele-table",
+  "keywords": [
+    "vue-ele-table",
+    "vue table",
+    "element table",
+    "element",
+    "element-ui table",
+    "element table",
+    "el-editable",
+    "datatable"
+  ],
   "dependencies": {
-    "vue-ele-editable": "^1.0.1"
+    "vue-ele-table": "^1.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.8.0",
