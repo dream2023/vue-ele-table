@@ -16,5 +16,4 @@ if (typeof window !== 'undefined' && window.Vue) {
   Plugin.install(window.Vue)
 }
 
-export { EleTable }
 export default Plugin
