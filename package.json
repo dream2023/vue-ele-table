@@ -1,6 +1,10 @@
 {
   "name": "vue-ele-table",
+<<<<<<< HEAD
   "version": "0.1.2",
+=======
+  "version": "0.1.1",
+>>>>>>> dev
   "description": "基于 element-ui 功能强大的表格组件",
   "license": "MIT",
   "private": false,
@@ -27,7 +31,7 @@
     "datatable"
   ],
   "dependencies": {
-    "vue-ele-table": "^1.0.2"
+    "vue-ele-editable": "^1.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.8.0",
